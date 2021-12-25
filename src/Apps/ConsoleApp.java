@@ -2,10 +2,7 @@ package first.Apps;
 
 
 import first.Controllers.*;
-import first.DBs.FactoryTable;
-import first.DBs.ITable;
 import first.DBs.ITableProvider;
-import first.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +27,7 @@ public class ConsoleApp implements IApp {
     }
 */
     public ConsoleApp(ITableProvider tp) throws Exception {
-        //FactoryTable ft = new FactoryTable();
+        //ArrayTableProvider ft = new ArrayTableProvider();
         //List<ITable<? extends MyItem>> lst = ft.getTable(i);
         console = new Scanner(System.in);
         Controls = new ArrayList<>();

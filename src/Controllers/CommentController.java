@@ -15,12 +15,12 @@ import first.models.MyItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentController implements IController {
+public class CommentController implements IController<Comment> {
     private final String name = "Comment";
     private ITable<Comment> table;
     private List<IAction> actions;
 
-    public CommentController(ITable<? extends MyItem> table) {
+    public CommentController(ITable<Comment> table) {
         setTable(table);
         actions = new ArrayList<>();
         actions.add(new AddAction(table));
@@ -33,7 +33,7 @@ public class CommentController implements IController {
         return table;
     }
 
-    public void setTable(ITable<? extends MyItem> table) {
+    public void setTable(ITable<Comment> table) {
         this.table = (ITable<Comment>) table;
     }
 

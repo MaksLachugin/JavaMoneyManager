@@ -15,7 +15,7 @@ import first.models.MyItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntryController implements IController {
+public class EntryController implements IController<Entry> {
     private final String name = "Entry";
     private ITable<Entry> table;
     private List<IAction> actions;
@@ -28,7 +28,7 @@ public class EntryController implements IController {
         this.actions = actions;
     }
 
-    public EntryController(ITable<? extends MyItem> table) {
+    public EntryController(ITable<Entry> table) {
         setTable(table);
         actions = new ArrayList<>();
         actions.add(new AddAction(table));
@@ -41,7 +41,7 @@ public class EntryController implements IController {
         return table;
     }
 
-    public void setTable(ITable<? extends MyItem> table) {
+    public void setTable(ITable<Entry> table) {
         this.table = (ITable<Entry>) table;
     }
 

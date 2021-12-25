@@ -15,12 +15,12 @@ import first.models.MyItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientController implements IController {
+public class ClientController implements IController<Client> {
     private final String name = "Client";
     private ITable<Client> table;
     private List<IAction> actions;
 
-    public ClientController(ITable<? extends MyItem> table) {
+    public ClientController(ITable<Client> table) {
         setTable(table);
         actions = new ArrayList<>();
         actions.add(new AddAction(table));
@@ -33,9 +33,11 @@ public class ClientController implements IController {
         return table;
     }
 
-    public void setTable(ITable<? extends MyItem> table) {
+    @Override
+    public void setTable(ITable<Client> table) {
         this.table = (ITable<Client>) table;
     }
+
 
     @Override
     public String getName() {
