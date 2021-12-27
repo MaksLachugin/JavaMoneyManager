@@ -11,11 +11,13 @@
 <html>
 <head>
     <title>Main</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <jsp:include page="header.html" />
 <%
-    String[] entryArray = (String[]) request.getAttribute("Entries");
+    String[] entryArray = (String[]) request.getAttribute("array");
 %>
 
 <table border="2" cellspacing="0" cellpadding="2"
@@ -27,12 +29,12 @@
 
     <tr bgcolor="green">
             <%} else { %>
-    <tr bgcolor="red">
+    <tr bgcolor="#brown">
         <%
             }
         %>
 
-        <td><%= arr[0] %>
+        <td align="right"><%= arr[0] %>
         </td>
         <td><%= arr[1] %>
         </td>

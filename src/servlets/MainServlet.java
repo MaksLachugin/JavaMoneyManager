@@ -34,7 +34,7 @@ public class MainServlet extends HttpServlet {
             e.printStackTrace();
         }*/
         try {
-            req.setAttribute("Entries", new VisualAction(tableProvider.getEntryTable(), tableProvider.getCommentTable(), tableProvider.getCategoryTable(), tableProvider.getClientTable()).action("").split("\n"));
+            req.setAttribute("array", new VisualAction(tableProvider.getEntryTable(), tableProvider.getCommentTable(), tableProvider.getCategoryTable(), tableProvider.getClientTable()).action("").split("\n"));
         } catch (Exception e) {
             e.printStackTrace();
         }

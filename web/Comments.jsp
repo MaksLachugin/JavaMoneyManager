@@ -10,39 +10,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Main</title>
+    <title>Comments</title>
 </head>
 <body>
-<jsp:include page="header.html" />
+<jsp:include page="header.html"/>
 <%
-    String[] entryArray = (String[]) request.getAttribute("Entries");
+    String[] array = (String[]) request.getAttribute("array");
 %>
+<table border="2" cellspacing="0" cellpadding="2">
+    <%
 
-
-<table border="2" cellspacing="0" cellpadding="2"
->
-    <% for (String entry : entryArray) {
-        String[] arr = entry.split(", ");
-        if (Integer.parseInt(arr[0]) > 0) {
+        for (String item : array) {
+            String[] arr = item.split(", ");
     %>
-
-    <tr bgcolor="green">
-            <%} else { %>
-    <tr bgcolor="red">
-        <%
-            }
-        %>
-
-        <td><%= arr[0] %>
-        </td>
-        <td><%= arr[1] %>
-        </td>
-        <td><%= arr[2] %>
-        </td>
-        <td><%= arr[3] %>
-        </td>
-        <td><%= arr[4] %>
-        </td>
+    <tr>
+        <td><%= arr[0] %></td>
+        <td><%= arr[1] %></td>
 
 
     </tr>
