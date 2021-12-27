@@ -49,7 +49,7 @@ public class VisualAction implements IAction {
     }
 
     private String formater(Entry entry, Category category, Client client, Comment comment) {
-        String[] arr = {String.valueOf(entry.getCost()), entry.getNormalTime(), (category == null) ? "" : category.getName(), (client == null) ? "" : client.getName(), (comment == null) ? "" : comment.getComment()};
+        String[] arr = {String.valueOf(entry.getID()), String.valueOf(entry.getCost()), entry.getNormalTime(), (category == null) ? " " : category.getName(), (client == null) ? " " : client.getName(), (comment == null) ? " " : comment.getComment()};
         return String.join(", ", arr);
     }
 }

@@ -14,23 +14,38 @@
 </head>
 <body>
 <jsp:include page="header.html"/>
+<form method="post">
+    <p>
+        <%= (String) request.getAttribute("form")%>
+    </p>
+    <input type="text" name="create">
+    <input type="submit" value="Создать">
+</form>
 <%
     String[] array = (String[]) request.getAttribute("array");
 %>
 <table border="2" cellspacing="0" cellpadding="2">
     <%
-
-        for (String item : array) {
-            String[] arr = item.split(", ");
+        if (array.length > 0) {
+            for (String item : array) {
+                String[] arr = item.split(", ");
     %>
     <tr>
-        <td><%= arr[0] %></td>
-        <td><%= arr[1] %></td>
-        <td><%= arr[2] %></td>
-
+        <td><%= arr[0] %>
+        </td>
+        <td><%= arr[1] %>
+        </td>
+        <td><%= arr[2] %>
+        </td>
+        <td>
+            <form method="post">
+                <input type="submit" name="remove" value="<%= arr[0] %>"/>
+            </form>
+        </td>
 
     </tr>
-    <% } %>
+    <% }
+    } %>
 </table>
 
 </body>

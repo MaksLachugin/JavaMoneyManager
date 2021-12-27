@@ -94,18 +94,19 @@ public class Entry extends MyItem {
     }
 
     void fromString(String str) throws Exception {
-        var s = str.split(", ");
+        var s = str.split(",");
+
         if (s.length == 6) {
-            setID(Integer.parseInt(s[0]));
-            setCost(Integer.parseInt(s[1]));
-            setTime(Long.parseLong(s[2]));
-            setIDComment(Integer.parseInt(s[3]));
-            setIDClient(Integer.parseInt(s[4]));
-            setIDCategory(Integer.parseInt(s[5]));
+            setID(Integer.parseInt(s[0].strip()));
+            setCost(Integer.parseInt(s[1].strip()));
+            setTime(Long.parseLong(s[2].strip()));
+            setIDComment(Integer.parseInt(s[3].strip()));
+            setIDClient(Integer.parseInt(s[4].strip()));
+            setIDCategory(Integer.parseInt(s[5].strip()));
         } else if (s.length == 3) {
-            setID(Integer.parseInt(s[0]));
-            setCost(Integer.parseInt(s[1]));
-            setTime(Long.parseLong(s[2]));
+            setID(Integer.parseInt(s[0].strip()));
+            setCost(Integer.parseInt(s[1].strip()));
+            setTime(Long.parseLong(s[2].strip()));
         } else {
             throw new Exception("Не верное кол-во параметров для поступления");
 
