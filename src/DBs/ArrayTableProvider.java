@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
 
-public class ArrayTableProvider implements ITableProvider{
+public class ArrayTableProvider implements ITableProvider {
     public ArrayTableProvider() {
         TearDropFactory<Category> tdf1 = new TearDropFactory<Category>(new Category(0, ""));
         categoriesTable = new ArrayTable<Category>(tdf1);

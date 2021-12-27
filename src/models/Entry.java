@@ -66,6 +66,9 @@ public class Entry extends MyItem {
         this.IDCategory = IDCategory;
     }
 
+    public String getNormalTime() {
+        return new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date(getTime() * 1000));
+    }
 
     public Entry(int id, int cost, Long time) {
         super(id);
@@ -109,4 +112,6 @@ public class Entry extends MyItem {
         }
 
     }
+
+
 }

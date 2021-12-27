@@ -1,17 +1,7 @@
 package first.Controllers;
-
 import first.Controllers.Actions.*;
 import first.DBs.ITable;
-import first.DBs.SQL.CommentsSQLTable;
-import first.DBs.SQL.EntriesSQLTable;
-import first.DBs.SQL.Settings.DBConnectionProvider;
-import first.DBs.SQL.Settings.SQLDBProvider;
-import first.DBs.array.ArrayTable;
-import first.DBs.TearDropFactory;
-import first.models.Comment;
 import first.models.Entry;
-import first.models.MyItem;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +32,7 @@ public class EntryController implements IController<Entry> {
     }
 
     public void setTable(ITable<Entry> table) {
-        this.table = (ITable<Entry>) table;
+        this.table = table;
     }
 
     @Override

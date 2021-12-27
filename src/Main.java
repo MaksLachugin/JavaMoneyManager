@@ -23,4 +23,8 @@ public class Main {
 
         MyApp.run();
     }
+    private static void WebApp(){
+
+
+    }
 }
