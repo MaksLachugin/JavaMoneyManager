@@ -48,8 +48,25 @@ public class CategoriesServlet extends HttpServlet {
         ITableProvider tableProvider = new SQLTableProvider(new SQLDBProvider("D:\\code\\IdeaProjects\\java1_1\\Java_Lachugin.db"));
         req.setCharacterEncoding("UTF-8");
         Map<String, String[]> map = req.getParameterMap();
+        String met = req.getParameter("_method");
+        if ("delete".equals(met)){
+            try {
+                new RemoveAction(tableProvider.getCategoryTable()).action(req.getParameter("id"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            String id = req.getParameter("id");
+            String name = req.getParameter("name");
+            String type = req.getParameter("type");
+            try {
+                new AddAction(tableProvider.getCategoryTable()).action(id + ", " + name + ", "+ type);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
-        for (String str : map.keySet()) {
+/*        for (String str : map.keySet()) {
             if (str.equals("remove")) {
                 try {
                     new RemoveAction(tableProvider.getCategoryTable()).action(map.get(str)[0]);
@@ -63,7 +80,7 @@ public class CategoriesServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-        }
-        doGet(req, resp);
+        }*/
+        resp.sendRedirect("/Categories");
     }
 }

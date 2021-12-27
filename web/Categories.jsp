@@ -14,11 +14,18 @@
 </head>
 <body>
 <jsp:include page="header.html"/>
-<form method="post">
+<form action="/Categories" method="post">
     <p>
         <%= (String) request.getAttribute("form")%>
     </p>
-    <input type="text" name="create">
+
+    <input type="text" name="create"/>
+    <p>
+    <label>ID:</label>
+    <input type="number" name="id"/>
+    </p>
+    <input type="text" name="name"/>
+    <input type="text" name="type"/>
     <input type="submit" value="Создать">
 </form>
 <%
@@ -38,8 +45,10 @@
         <td><%= arr[2] %>
         </td>
         <td>
-            <form method="post">
-                <input type="submit" name="remove" value="<%= arr[0] %>"/>
+            <form action="/Categories" method="post">
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="hidden" name="id" value="<%= arr[0] %>"/>
+                <input type="submit" value="Удалить"/>
             </form>
         </td>
 
