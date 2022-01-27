@@ -28,10 +28,10 @@ public class CommentsSQLTable extends ASQLTable<Comment> {
 
     @Override
     PreparedStatement getAddElTo(Connection c, Comment el, String query) throws SQLException {
-        query += new String("(?, ?)");
+        query += new String("(null, ?)");
         PreparedStatement q = c.prepareStatement(query);
-        q.setInt(1, el.getID());
-        q.setString(2, el.getComment());
+
+        q.setString(1, el.getComment());
         return q;
     }
 

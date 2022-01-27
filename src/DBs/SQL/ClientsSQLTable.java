@@ -28,10 +28,9 @@ public class ClientsSQLTable extends ASQLTable<Client> {
 
     @Override
     PreparedStatement getAddElTo(Connection c, Client el, String query) throws SQLException {
-        query += new String("(?, ?)");
+        query += new String("(null, ?)");
         PreparedStatement q = c.prepareStatement(query);
-        q.setInt(1, el.getID());
-        q.setString(2, el.getName());
+        q.setString(1, el.getName());
         return q;
     }
 

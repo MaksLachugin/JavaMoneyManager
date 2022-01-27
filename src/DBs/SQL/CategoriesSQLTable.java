@@ -28,11 +28,10 @@ public class CategoriesSQLTable extends ASQLTable<Category> {
 
     @Override
     PreparedStatement getAddElTo(Connection c, Category el, String query) throws SQLException {
-        query += new String("(?, ?, ?)");
+        query += new String("(null, ?, ?)");
         PreparedStatement q = c.prepareStatement(query);
-        q.setInt(1,el.getID());
-        q.setString(2, el.getName());
-        q.setString(3, el.getType().toString());
+        q.setString(1, el.getName());
+        q.setString(2, el.getType().toString());
         return q;
     }
 

@@ -13,8 +13,7 @@ import java.awt.*;
 
 public class ArrayTableProvider implements ITableProvider {
     public ArrayTableProvider() {
-        TearDropFactory<Category> tdf1 = new TearDropFactory<Category>(new Category(0, ""));
-        categoriesTable = new ArrayTable<Category>(tdf1);
+        categoriesTable = new ArrayTable<Category>(Category.tdf);
         TearDropFactory<Comment> tdf2 = new TearDropFactory<Comment>(new Comment(0, ""));
         commentsTable = new ArrayTable<Comment>(tdf2);
         TearDropFactory<Client> tdf3 = new TearDropFactory<Client>(new Client(0, ""));

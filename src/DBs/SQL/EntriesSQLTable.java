@@ -36,14 +36,13 @@ public class EntriesSQLTable extends ASQLTable<Entry> {
 
     @Override
     PreparedStatement getAddElTo(Connection c, Entry el, String query) throws SQLException {
-        query += new String("(?, ?, ?, ?, ?, ?)");
+        query += new String("(null, ?, ?, ?, ?, ?)");
         PreparedStatement q = c.prepareStatement(query);
-        q.setInt(1, el.getID());
-        q.setInt(2, el.getCost());
-        q.setLong(3, el.getTime());
-        q.setInt(4, el.getIDComment());
-        q.setInt(5, el.getIDClient());
-        q.setInt(6, el.getIDCategory());
+        q.setInt(1, el.getCost());
+        q.setLong(2, el.getTime());
+        q.setInt(3, el.getIDComment());
+        q.setInt(4, el.getIDClient());
+        q.setInt(5, el.getIDCategory());
         return q;
     }
 

@@ -1,6 +1,15 @@
 package first.models;
 
+import first.DBs.TearDropFactory;
+
 public class Category extends ItemWithStr {
+    public static final TearDropFactory<Category> tdf = new TearDropFactory<>(){
+
+
+        public Category newEl(String str) throws Exception {
+            return new Category(str);
+        }
+    };
     public Category(int ID, String Name, String type) {
         this(ID, Name, TypeOfCategory.getType(type));
     }
@@ -55,13 +64,13 @@ public class Category extends ItemWithStr {
 
     void fromString(String str) throws Exception {
         var s = str.split(", ");
-        if (s.length == 3) {
-            setID(Integer.parseInt(s[0]));
-            setName(s[1].trim());
-            setType(TypeOfCategory.getType(s[2].trim()));
-        } else if (s.length == 2) {
-            setID(Integer.parseInt(s[0]));
-            setName(s[1].trim());
+        if (s.length == 2) {
+           // setID(Integer.parseInt(s[0]));
+            setName(s[0].trim());
+            setType(TypeOfCategory.getType(s[1].trim()));
+        } else if (s.length == 1) {
+         //   setID(Integer.parseInt(s[0]));
+            setName(s[0].trim());
             setType(TypeOfCategory.Both);
         } else {
             throw new Exception("Не верное кол-во параметров для категории");
